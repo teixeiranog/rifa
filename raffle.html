@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pix Taboão | Rifa digital</title>
+    <link rel="stylesheet" href="./css/raffle-dark.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="overlay-blur-effect"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <a href="#">
+                <img src="./images/logo pix taboão.png" alt="Logo" draggable="false">
+            </a>
+        </div>
+    </header>
+    <!-- Header -->
+
+    <!-- Content -->
+    <main>
+        <div class="main-container">
+            <div class="search-tickets-overlay">
+                <form action="#">
+                    <div class="search-tickets-container">
+                        <div class="search-tickets-box">
+                            <label for="search-tickets">Buscar bilhetes</label>
+                            <img id="close-search-tickets" src="./images/icons/close-icon.svg" alt="Fechar">
+                            <input id="search-tickets" type="email" placeholder="Digite seu e-mail" required>
+                            <button type="submit">Buscar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="my-tickets">
+                <a href="#" onclick="toggleSearchTickets()">
+                    <img src="./images/icons/search-icon.svg" draggable="false">
+                    Buscar meus bilhetes
+                </a>
+            </div>
+            <div class="raffle">
+                <div class="main-image">
+                    <img src="./images/banners/5mil no pix.jpg" alt="Rifa em Destaque">
+                    <div class="main-statement">por <b>R$ 0,00</b> quatro números</div>
+                </div>
+                <h2>R$&nbsp5.000,00 no PIX (5 mil no PIX)</h2>
+                <div class="raffle-organizer">
+                    <div class="organizer-image">
+                        <img src="./images/person.jpeg" alt="Organizador da Rifa">
+                    </div>
+                    <div class="organizer-info">
+                        <p>Organizado por:</p>
+                        <h4>NOGUEIRA</h4>
+                        <div class="organizer-tags">
+                            <a href="#" target="_blank">
+                                <div class="tag support">
+                                    <img src="./images/icons/whatsapp-icon.svg">
+                                    <span>Suporte</span>
+                                </div>
+                            </a>
+                            <a href="#" target="_blank">
+                                <div class="tag telegram">
+                                    <img src="./images/icons/telegram-icon.svg">
+                                    <span>Telegram</span>
+                                </div>
+                            </a>
+                            <a href="#" target="_blank">
+                                <div class="tag instagram">
+                                    <img src="./images/icons/instagram-icon.svg">
+                                    <span>Instagram</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="awards">
+                    
+                </div>
+                <div class="raffle-description">
+                    <h4>Descrição / Regulamento</h4>
+                    <p>Para participar do <b>PIX GRATIS TABOÃO</b> você precisa fazer as tarefas que estão logo abaixo, no total são quatro tarefas, cada uma vale um bilhete com um número gerado aleatoriamente pelo sistema, com esse número você participa do sorteio com base no números que serão sorteados pela foteria federal!</p><br>
+                    <p>O vencedor será definido no primeiro prêmio da loteria federal! No primeiro sábado do mês! </p>                    
+                </div>
+                <div class="raffle-tickets"> 
+                    <h4>Complete as Tarefas</h4>
+
+                    <button id="task1" class="button-task" onclick="startTask(1, 2, 'https://www.triponboat.today/click?offer_id=23514&pub_id=255539&pub_click_id=ADD_CLICK_ID_HERE&site=PASS_SITE_HERE')">Tarefa 1</button>
+                    <button id="task2" class="button-task" disabled onclick="startTask(2, 3, 'https://www.triponboat.today/click?offer_id=26516&pub_id=255539&pub_click_id=ADD_CLICK_ID_HERE&site=PASS_SITE_HERE')">Tarefa 2</button>
+                    <button id="task3" class="button-task" disabled onclick="startTask(3, 4, 'https://www.triponboat.today/click?offer_id=29855&pub_id=255539&pub_click_id=ADD_CLICK_ID_HERE&site=PASS_SITE_HERE')">Tarefa 3</button>
+                    <button id="task4" class="button-task" disabled onclick="startTask(4, 5, 'https://www.triponboat.today/click?offer_id=30920&pub_id=255539&pub_click_id=ADD_CLICK_ID_HERE&site=PASS_SITE_HERE')">Tarefa 4</button>
+
+                    <div id="result"></div>
+                    <div id="reserve-button" style="display:none;">
+                        <button onclick="showReserve()">Reservar</button>
+                    </div>
+
+                    <div class="purchase">
+                        <div class="purchase-overlay">
+                            <form action="#">
+                                <div class="purchase-tickets-container">
+                                    <div class="purchase-tickets-box">
+                                        <img id="close-purchase-tickets" src="./images/icons/close-icon.svg" alt="Fechar">
+                                        <label>Reservar bilhetes</label>
+                                        <input id="full-name" name="full-name" type="text" placeholder="Nome completo" required>
+                                        <input id="email" name="email" type="email" placeholder="E-mail" required>
+                                        <input id="phone-number" name="phone-number" type="text" placeholder="Número de telefone / WhatsApp" required>
+                                        <div class="terms">
+                                            <input name="terms" type="checkbox" required>
+                                            <p>Li e concordo com os <a href="#" target="_blank">Termos e Condições</a> e estou ciente de que essa reserva me vincula apenas à esta campanha criada pelo(a) organizador(a) e NÃO à plataforma.</p>
+                                        </div>
+                                        <a class="purchase-submit-btn" href="./review.html">Reservar</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>                                                                                           
+                                                                                    
+                    </section>
+                </div>
+
+                <script>
+                    let randomNumbers = [];
+            
+                    function startTask(taskNumber, delayMinutes, taskLink) {
+                        let delay = delayMinutes * 60000; // converte minutos para milissegundos
+                        document.getElementById(`task${taskNumber}`).disabled = true;
+                        
+                        setTimeout(() => {
+                            let randomNumber = Math.floor(Math.random() * 100000).toString().padStart(5, '0');
+                            randomNumbers[taskNumber - 1] = randomNumber;
+                            document.getElementById(`task${taskNumber}`).innerText = randomNumber;
+                            
+                            if (taskNumber < 4) {
+                                document.getElementById(`task${taskNumber + 1}`).disabled = false;
+                            } else {
+                                document.getElementById('reserve-button').style.display = 'block';
+                            }
+                        }, delay);
+
+                        // Redireciona para o link após um pequeno atraso para garantir que a ação seja registrada
+                        setTimeout(() => {
+                            window.open(taskLink, '_blank');
+                        }, 500);
+                    }
+            
+                    function showReserve() {
+                        document.querySelector('.purchase').style.display = 'block';
+                    }
+            
+                    function toggleSearchTickets() {
+                        document.querySelector('.search-tickets-overlay').style.display = 'block';
+                    }
+                </script>
+                
+                <div class="raffle-duals">                    
+                    <div class="raffle-origin">
+                        <h4>Sorteio</h4>
+                        <div class="raffle-text">
+                            <img src="./images/icons/loterias-caixa-logo.png" alt="Loterias Caixa" draggable="false">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Content -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-masker/1.2.0/vanilla-masker.min.js"></script>
+    <script>
+        // Phone Number Mask
+        VMasker(document.getElementById("phone-number")).maskPattern("(99) 99999-9999");
+    </script>
+    <script src="./js/search-tickets.js"></script>
+    <script src="./js/add-raffle.js"></script>
+    <script src="./js/purchase
